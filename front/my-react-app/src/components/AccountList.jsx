@@ -9,8 +9,32 @@ function AccountList({
   onWithdraw,
   onDelete,
 }) {
-  if (status === "loading") return <div className="card">Loading...</div>;
-  if (status === "succeeded" && accounts.length === 0) return <div className="card">No accounts found.</div>;
+  if (status === "loading") {
+    return (
+      <div className="grid">
+        {[1, 2, 3].map((i) => (
+          <div className="skeleton-card" key={i}>
+            <div className="skeleton skeleton-line medium" />
+            <div className="skeleton skeleton-line short" />
+            <div className="skeleton skeleton-line long" />
+            <div className="skeleton skeleton-line badge" />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (status === "succeeded" && accounts.length === 0) {
+    return (
+      <div className="card empty-state">
+        <div className="empty-icon">🏦</div>
+        <div className="empty-title">No accounts yet</div>
+        <div className="empty-description">
+          Create your first bank account to get started
+        </div>
+      </div>
+    );
+  }
 
   if (status !== "succeeded") return null;
 

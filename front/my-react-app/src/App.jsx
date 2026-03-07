@@ -95,13 +95,16 @@ function App() {
 
       <main className="content">
         <div className="header">
-          <div className="title">Welcome</div>
+          <div>
+            <div className="title">Welcome</div>
+            <div className="subtitle">Access & manage your accounts and transactions</div>
+          </div>
           <div className="actions">
             <button
-              className="btn btn-primary"
+              className={`btn ${showCreateForm ? 'btn-ghost' : 'btn-primary'}`}
               onClick={() => setShowCreateForm(!showCreateForm)}
             >
-              {showCreateForm ? 'Cancel' : 'Create Account'}
+              {showCreateForm ? 'Cancel' : '+ Create Account'}
             </button>
           </div>
         </div>
@@ -111,7 +114,9 @@ function App() {
             <div className="caption">Total Current Balance</div>
             <div className="balance">${totalBalance.toFixed(2)}</div>
           </div>
-          <div className="caption">{accounts?.length || 0} Bank Accounts</div>
+          <div className="account-count">
+            🏦 {accounts?.length || 0} Accounts
+          </div>
         </div>
 
         <ErrorBanner error={error} onClear={() => dispatch(clearError())} />

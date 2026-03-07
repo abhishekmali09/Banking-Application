@@ -13,9 +13,6 @@ public class AccountDto {
         this.balance = balance;
     }
 
-    public AccountDto(Long id, double balance) {
-    }
-
     public Long getId() {
         return id;
     }

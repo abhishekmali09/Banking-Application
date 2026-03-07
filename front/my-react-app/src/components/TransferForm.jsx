@@ -13,14 +13,18 @@ function TransferForm({ accounts, onSubmit }) {
       amount: parseFloat(amount) || 0,
     };
     onSubmit(payload);
+    setFromAccount("");
+    setToAccount("");
     setAmount("");
   };
 
   return (
     <form className="card form" onSubmit={handleSubmit}>
       <div className="card-header">
-        <div className="title">Transfer Funds</div>
-        <div className="caption">Move money between your accounts</div>
+        <div>
+          <div className="title">🔁 Transfer Funds</div>
+          <div className="caption">Move money between your accounts</div>
+        </div>
       </div>
       <div className="divider" />
       <div className="form-row">
@@ -52,13 +56,14 @@ function TransferForm({ accounts, onSubmit }) {
           type="number"
           step="0.01"
           min="0"
+          placeholder="0.00"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
           required
         />
       </div>
       <div className="actions">
-        <button className="btn btn-primary" type="submit">Transfer</button>
+        <button className="btn btn-primary" type="submit">Transfer Funds</button>
       </div>
     </form>
   );

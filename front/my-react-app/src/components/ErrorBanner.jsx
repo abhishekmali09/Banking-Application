@@ -2,8 +2,11 @@ function ErrorBanner({ error, onClear }) {
   if (!error) return null;
   return (
     <div className="error-banner">
-      Error: {error}
-      <button className="btn btn-ghost" onClick={onClear} style={{ marginLeft: 10 }}>Clear</button>
+      <span className="error-icon">⚠️</span>
+      <span className="error-text">{error}</span>
+      <button className="btn btn-ghost" onClick={onClear}>
+        Dismiss
+      </button>
     </div>
   );
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/accounts")
 public class AccountController {
@@ -25,7 +26,7 @@ public class AccountController {
     @PostMapping
     public ResponseEntity<AccountDto> addAccount (@RequestBody AccountDto accountDto) {
 
-        return new ResponseEntity<>(accountService.createAcoount(accountDto), HttpStatus.CREATED);
+        return new ResponseEntity<>(accountService.createAccount(accountDto), HttpStatus.CREATED);
 
     }
 //get single account
